@@ -2,5 +2,6 @@
     "python.linting.enable": true,
     "python.linting.pylint.enabled": true,
     "python.formatting.provider": "black",
-    "python.venvFolders": ["envs",".pyenv",".direnv", "venv"]
+    "python.venvFolders": ["envs",".pyenv",".direnv", "venv"],
+    "pyright.enable": false
 }
