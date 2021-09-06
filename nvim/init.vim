@@ -157,7 +157,7 @@ augroup END
 
 " Quick-scope
 " Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Some nice remaps from ThePrimeAgen video 'MUST HAVE VIM REMAPS'
 " Y behave like D, C, ... : yank end of line
