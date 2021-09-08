@@ -63,6 +63,10 @@ inoremap jj <Esc>
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+" Remap to replace current selection by what is in the buffer (works in visual mode). From ThePrimeAgen video : "Vim
+" registers ..."
+vnoremap <leader>p "_dP
+
 " Fuzzy search in git files with Ctrl + P (fzf)
 nnoremap <C-p> :GFiles<CR>
 
