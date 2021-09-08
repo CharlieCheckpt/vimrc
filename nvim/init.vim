@@ -31,7 +31,8 @@ set noerrorbells
 
 " Plugins
 call plug#begin('~/share/nvim/plugged')
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'justinmk/vim-sneak'
@@ -46,8 +47,10 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Color scheme
+" let g:gruvbox_colors = 'dark0_hard'
+let g:gruvbox_invert_selection=0
 colorscheme gruvbox
-set background=dark
+" set background=dark
 
 " Remappings
 " Map leader to space
