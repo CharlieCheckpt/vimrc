@@ -79,6 +79,11 @@ map <leader>j :wincmd j<CR>
 map <leader>k :wincmd k<CR>
 map <leader>l :wincmd l<CR>
 
+" show substitutions incrementally
+if has("nvim")
+    set inccommand=nosplit
+endif
+
 " How to open new file on fuzzy search
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
