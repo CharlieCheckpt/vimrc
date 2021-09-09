@@ -47,7 +47,7 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " Color scheme
-" let g:gruvbox_colors = 'dark0_hard'
+" Invert color when selecting text
 let g:gruvbox_invert_selection=0
 colorscheme gruvbox
 " set background=dark
