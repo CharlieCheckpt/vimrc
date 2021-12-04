@@ -1,7 +1,11 @@
 {
-    "python.linting.enable": true,
-    "python.linting.pylint.enabled": true,
+    "python.linting.enabled": true,
+    "python.linting.pylint.enabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.formatting.blackArgs": ["--line-length=119"],
+    "python.linting.flake8Args": ["--max-line-length=119"],
     "python.formatting.provider": "black",
     "python.venvFolders": ["envs",".pyenv",".direnv", "venv"],
-    "pyright.enable": false
+    "pyright.enable": true,
+    "coc.preferences.formatOnSaveFiletypes": ["python"]
 }

@@ -29,9 +29,14 @@ set shortmess+=c
 set cursorline
 set noerrorbells
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Plugins
-call plug#begin('~/share/nvim/plugged')
-" Plug 'morhetz/gruvbox'
+call plug#begin('~/.vim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -43,6 +48,7 @@ Plug 'terryma/vim-expand-region'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
 " Plug 'unblevable/quick-scope'
 call plug#end()
 
@@ -91,10 +97,13 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit'
   \}
 
+" Coc : add nodejs path
+let g:coc_node_path = '~/nodejs/bin/node'
 " Coc.nvim : Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-let g:coc_global_extensions = ["coc-python"]
+" not sure what is the use of the line below
+let g:coc_global_extensions = ["coc-pyright"]
 " Coc : Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -219,3 +228,9 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+
+" Ultisnips
+let g:UltiSnipsSnippetDirectories = ['/fusionio/home/chs/workspace/vimrc/nvim/ultisnips']
+let g:UltiSnipsExpandTrigger="<c-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"

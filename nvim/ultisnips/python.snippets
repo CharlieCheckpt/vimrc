@@ -1,0 +1,33 @@
+snippet ipdb "import ipdb"
+import ipdb; ipdb.set_trace() # debug:
+endsnippet
+
+snippet impd "import pandas"
+import pandas as pd
+endsnippet
+
+snippet imnp "import numpy as np"
+import numpy as np
+endsnippet
+
+snippet fpath "import Path"
+from pathlib import Path
+endsnippet
+
+snippet parser "define parser"
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("--$1")
+args = parser.parse_args()
+endsnippet
+
+snippet ifmain "if __main__ statement"
+if __name__ == "__main__":
+	$1
+endsnippet
+
+
+snippet pf "print(f...)"
+print(f"{$1}")
+endsnippet
+
