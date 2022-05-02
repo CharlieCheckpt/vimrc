@@ -1,4 +1,3 @@
-" Tab options
 set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
@@ -48,7 +47,7 @@ Plug 'terryma/vim-expand-region'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 " Plug 'unblevable/quick-scope'
 call plug#end()
 
@@ -98,7 +97,7 @@ let g:fzf_action = {
   \}
 
 " Coc : add nodejs path
-let g:coc_node_path = '~/nodejs/bin/node'
+let g:coc_node_path = "~/nodejs/bin/node"
 " Coc.nvim : Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -228,9 +227,3 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
-
-" Ultisnips
-let g:UltiSnipsSnippetDirectories = ['/fusionio/home/chs/workspace/vimrc/nvim/ultisnips']
-let g:UltiSnipsExpandTrigger="<c-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
