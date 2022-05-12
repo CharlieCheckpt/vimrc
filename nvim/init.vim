@@ -8,6 +8,7 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
+set paste
 " Relative line numbers
 " set relativenumber
 set laststatus=2
