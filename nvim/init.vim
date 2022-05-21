@@ -36,7 +36,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
