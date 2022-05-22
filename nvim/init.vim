@@ -9,25 +9,42 @@ set smartcase
 set noswapfile
 set nobackup
 set paste
+
 " Relative line numbers
 " set relativenumber
 set laststatus=2
+
 " Clear last search highlighting
 set nohlsearch
+
 " Disable show mode since lightline is already displaying it
 set noshowmode
+
 " Coc : TextEdit might fail if hidden is not set.
 set hidden
+
 " Coc : Give more space for displaying messages.
 set cmdheight=2
+
 " Coc : Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
+
 " Coc : Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
+
 " Current line highlighted : Not sure it works in all cases
 set cursorline
 set noerrorbells
+
+" Return to last edit position when opening files
+autocmd BufReadPost * silent! normal! g`"zv
+
+" Disable arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -36,7 +53,7 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 Plug 'gruvbox-community/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -45,9 +62,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdcommenter'
 Plug 'terryma/vim-expand-region'
-" Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-commentary'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'christoomey/vim-system-copy'
 "Plug 'SirVer/ultisnips'
 " Plug 'unblevable/quick-scope'
 call plug#end()
@@ -55,8 +73,9 @@ call plug#end()
 " Color scheme
 " Invert color when selecting text
 let g:gruvbox_invert_selection=0
+" colorscheme gruvbox
 colorscheme gruvbox
-" set background=dark
+set background=dark
 
 " Remappings
 " Map leader to space
@@ -98,12 +117,15 @@ let g:fzf_action = {
   \}
 
 " Coc : add nodejs path
-let g:coc_node_path = "~/nodejs/bin/node"
+let g:coc_node_path = "/usr/local/bin/node"
+
 " Coc.nvim : Use <Tab> and <S-Tab> to navigate the completion list
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 " not sure what is the use of the line below
 let g:coc_global_extensions = ["coc-pyright"]
+
 " Coc : Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -121,10 +143,13 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -161,10 +186,6 @@ nmap <leader>rr <Plug>(coc-rename)
 nnoremap <leader>pw :Rg <C-R>=expand("<cword>")<CR><CR>
 " Toggle File tree
 map <C-n> :NERDTreeToggle<CR>
-
-" Nerd Commenter DOES NOT WORK 
-" nmap <C-c> <Plug>NERDCommenterToggle
-" vmap <C-c> <Plug>NERDCommenterToggle<CR>gv
 
 " Tabs
 nmap <leader>1 :bp<CR>
