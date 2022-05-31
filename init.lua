@@ -5,18 +5,31 @@ require('coc-config')
 require('lualine').setup()
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
-  context_commentstring = {
-    enable = true
-  },
-  highlight = {
-    enable = true,
-    disable = { "lua" }
-  },
-  indent = {
-    enable = true
-  }
+ ensure_installed = "python",
+ context_commentstring = {
+   enable = true
+ },
+ highlight = {
+   enable = true,
+   disable = { "lua" }
+ },
+ indent = {
+   enable = true
+ }
 }
+
+-- lua, default settings
+require("better_escape").setup {
+    mapping = {"jk", "jj"}, -- a table with mappings to use
+    timeout = vim.o.timeoutlen, -- the time in which the keys must be hit in ms. Use option timeoutlen by default
+    clear_empty_lines = false, -- clear line after escaping if there is only whitespace
+    keys = "<Esc>", -- keys used for escaping, if it is a function will use the result everytime
+    -- example(recommended)
+    -- keys = function()
+    --   return vim.api.nvim_win_get_cursor(0)[2] > 1 and '<esc>l' or '<esc>'
+    -- end,
+}
+
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -34,9 +47,9 @@ return require('packer').startup(function()
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
-    "blackCauldron7/surround.nvim",
+    "max397574/better-escape.nvim",
     config = function()
-      require"surround".setup {mappings_style = "surround"}
-    end
+      require("better_escape").setup()
+    end,
   }
 end)
