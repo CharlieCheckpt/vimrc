@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.o.number  =true
+vim.o.number = true
 vim.o.relativenumber = false
 vim.o.wrap = false
 vim.o.expandtab = true
